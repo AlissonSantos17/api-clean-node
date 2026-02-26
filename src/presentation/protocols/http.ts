@@ -4,5 +4,5 @@ export interface HttpReponse {
 }
 
 export interface HttpRequest {
-  body?: any
+  body: Record<string, string>
 }
