@@ -1,4 +1,6 @@
 import love from 'eslint-config-love'
+import eslintConfigPrettier from 'eslint-config-prettier'
+import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default [
   {
@@ -7,5 +9,14 @@ export default [
   {
     ...love,
     files: ['src/**/*.ts'],
+    plugins: {
+      ...love.plugins,
+      prettier: eslintPluginPrettier,
+    },
+    rules: {
+      ...love.rules,
+      'prettier/prettier': 'error',
+    },
   },
+  eslintConfigPrettier,
 ]

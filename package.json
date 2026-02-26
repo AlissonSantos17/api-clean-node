@@ -3,9 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "eslint \"src/**/*.ts\" --no-error-on-unmatched-pattern",
+    "lint:fix": "eslint \"src/**/*.ts\" --fix --no-error-on-unmatched-pattern",
     "lint-staged": "lint-staged",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check",
     "prepare": "husky",
     "test": "jest",
     "test:staged": "jest --passWithNoTests"
@@ -17,10 +19,13 @@
     "@types/node": "^25.3.1",
     "eslint": "^9.35.0",
     "eslint-config-love": "^151.0.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-prettier": "^5.5.5",
     "git-commit-msg-linter": "^5.0.8",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
     "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
     "ts-jest": "^29.4.6",
     "typescript": "^5.9.3"
   }
