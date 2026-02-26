@@ -15,6 +15,8 @@ export default [
     },
     rules: {
       ...love.rules,
+      'no-magic-numbers': 'off',
+      '@typescript-eslint/no-magic-numbers': 'off',
       'prettier/prettier': 'error',
     },
   },
