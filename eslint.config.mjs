@@ -24,6 +24,7 @@ export default [
       '@typescript-eslint/no-unsafe-call': 'off',
       '@typescript-eslint/no-extraneous-class': 'off',
       '@typescript-eslint/class-methods-use-this': 'off',
+      '@typescript-eslint/strict-boolean-expressions': 'off',
     },
   },
   eslintConfigPrettier,
