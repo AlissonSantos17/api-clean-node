@@ -4,7 +4,9 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "lint-staged": "lint-staged",
+    "prepare": "husky"
   },
   "author": "Alisson Santos <alisson.wiin@gmail.com>",
   "license": "MIT",
@@ -13,6 +15,8 @@
     "eslint": "^9.35.0",
     "eslint-config-love": "^151.0.0",
     "git-commit-msg-linter": "^5.0.8",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
     "typescript": "^5.9.3"
   }
 }
