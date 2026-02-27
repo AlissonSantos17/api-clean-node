@@ -1,10 +1,9 @@
 import { InvalidParamError } from '../errors/invalid-param-error'
 import { MissingParamError } from '../errors/missing-param-error'
-import { ServerError } from '../errors/server-error'
-import { badRequest } from '../helpers/http-helper'
+import { badRequest, serverError } from '../helpers/http-helper'
 import type { Controller } from '../protocols/controller'
 import type { EmailValidator } from '../protocols/email-validator'
-import type { HttpReponse, HttpRequest } from '../protocols/http'
+import type { HttpRequest, HttpResponse } from '../protocols/http'
 
 export class SignUpController implements Controller {
   private readonly emailValidator: EmailValidator
@@ -13,7 +12,7 @@ export class SignUpController implements Controller {
     this.emailValidator = emailValidator
   }
 
-  handle(httpRequest: HttpRequest): HttpReponse {
+  handle(httpRequest: HttpRequest): HttpResponse {
     try {
       const requiredFields = ['name', 'email', 'password', 'passwordConfirmation']
       for (const field of requiredFields) {
@@ -30,10 +29,7 @@ export class SignUpController implements Controller {
         statusCode: 200,
       }
     } catch {
-      return {
-        statusCode: 500,
-        body: new ServerError(),
-      }
+      return serverError()
     }
   }
 }
