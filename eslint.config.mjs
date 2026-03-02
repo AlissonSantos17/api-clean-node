@@ -26,6 +26,7 @@ export default [
       '@typescript-eslint/class-methods-use-this': 'off',
       '@typescript-eslint/strict-boolean-expressions': 'off',
       '@typescript-eslint/prefer-destructuring': 'off',
+      '@typescript-eslint/no-unsafe-return': 'off',
     },
   },
   eslintConfigPrettier,
