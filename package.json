@@ -9,8 +9,12 @@
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "prepare": "husky",
-    "test": "jest --passWithNoTests --watch",
-    "test:staged": "jest --passWithNoTests"
+    "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
+    "test:verbose": "jest --passWithNoTests",
+    "test:unit": "yarn test --watch -c jest-unit-config.ts",
+    "test:integration": "yarn test --watch -c jest-integration-config.ts",
+    "test:staged": "yarn test --findRelatedTests",
+    "test:ci": "yarn test --coverage"
   },
   "author": "Alisson Santos <alisson.wiin@gmail.com>",
   "license": "MIT",
