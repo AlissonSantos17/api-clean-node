@@ -20,6 +20,6 @@ export class DbAddAccount implements AddAccount {
       ...accountData,
       password: encryptedPassword,
     })
-    return await Promise.resolve(account)
+    return account
   }
 }
