@@ -28,6 +28,7 @@ export default [
       '@typescript-eslint/prefer-destructuring': 'off',
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
+      'no-console': 'off',
     },
   },
   eslintConfigPrettier,
