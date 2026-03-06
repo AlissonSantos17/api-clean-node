@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" --no-error-on-unmatched-pattern",
     "lint:fix": "eslint \"src/**/*.ts\" --fix --no-error-on-unmatched-pattern",
-    "lint-staged": "lint-staged",
+    "lint-staged": "lint-staged --no-stash",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "prepare": "husky",
@@ -20,6 +20,7 @@
   "license": "MIT",
   "devDependencies": {
     "@shelf/jest-mongodb": "^6.0.2",
+    "@swc/core": "^1.15.18",
     "@types/jest": "^30.0.0",
     "@types/mongodb": "^4.0.7",
     "@types/node": "^25.3.1",
