@@ -5,7 +5,7 @@
   "scripts": {
     "lint": "eslint \"src/**/*.ts\" --no-error-on-unmatched-pattern",
     "lint:fix": "eslint \"src/**/*.ts\" --fix --no-error-on-unmatched-pattern",
-    "lint-staged": "lint-staged --no-stash",
+    "lint-staged": "lint-staged",
     "format": "prettier . --write",
     "format:check": "prettier . --check",
     "prepare": "husky",
