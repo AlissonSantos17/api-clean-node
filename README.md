@@ -1,4 +1,4 @@
-# API Clean Node
+#Clean Node API
 
 API REST construída com **Node.js** e **TypeScript**, seguindo os princípios da **Clean Architecture**. O projeto prioriza desacoplamento, testabilidade e qualidade de código desde a base.
 
