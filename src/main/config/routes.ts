@@ -5,7 +5,7 @@ export default (app: Express): void => {
   const routes = Router()
   app.use('/api', routes)
 
-  const files = fg.sync('**/src/main/routes/**routes.ts')
+  const files = fg.sync('**/main/routes/**routes.@(ts|js)')
   void Promise.all(
     files.map(async (file) => {
       const normalizedFile = file.replaceAll('\\', '/')
