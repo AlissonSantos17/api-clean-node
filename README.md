@@ -104,6 +104,15 @@ yarn install
 yarn test
 ```
 
+## Executar com Docker
+
+```bash
+# Subir API + MongoDB
+docker compose up --build
+```
+
+A API ficará disponível em `http://localhost:5050` e o MongoDB em `mongodb://localhost:27017/clean-node-api`.
+
 ## Licença
 
 Distribuído sob a licença MIT. Veja [LICENSE](LICENSE) para mais informações.
