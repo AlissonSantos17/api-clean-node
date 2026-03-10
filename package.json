@@ -5,6 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "sucrase-node src/main/server.ts",
+    "dev": " yarn build && yarn start",
     "start:prod": "node dist/main/server.js",
     "lint": "eslint \"src/**/*.ts\" --no-error-on-unmatched-pattern",
     "lint:fix": "eslint \"src/**/*.ts\" --fix --no-error-on-unmatched-pattern",
