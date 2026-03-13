@@ -29,6 +29,7 @@ export default [
       '@typescript-eslint/no-unsafe-return': 'off',
       '@typescript-eslint/no-non-null-assertion': 'off',
       '@typescript-eslint/no-unsafe-argument': 'off',
+      '@typescript-eslint/init-declarations': 'off',
       'no-console': 'off',
     },
   },
