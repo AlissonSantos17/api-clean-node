@@ -173,6 +173,19 @@ describe('SignUp Controller', () => {
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
+  it('should return 500 if AddAccount throws a non-Error value', async () => {
+    const { sut, addAccountStub } = makeSut()
+    jest.spyOn(addAccountStub, 'add').mockRejectedValueOnce('any_error')
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(
+      expect.objectContaining({
+        name: 'ServerError',
+        message: 'Internal server error',
+      }),
+    )
+  })
+
   it('should call add acount with correct values', async () => {
     const { sut, addAccountStub } = makeSut()
     const addSpy = jest.spyOn(addAccountStub, 'add')
