@@ -36,8 +36,7 @@ export class LoginController implements Controller {
       }
       return ok({ accessToken })
     } catch (error) {
-      const handledError = error instanceof Error ? error : new Error('Unexpected error')
-      return serverError(handledError)
+      return serverError(error instanceof Error ? error : new Error(String(error)))
     }
   }
 }
