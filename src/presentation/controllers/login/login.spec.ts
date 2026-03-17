@@ -113,6 +113,19 @@ describe('LoginController', () => {
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
+  it('should return 500 if Authentication throws a non-Error value', async () => {
+    const { sut, authenticationStub } = makeSut()
+    jest.spyOn(authenticationStub, 'auth').mockRejectedValueOnce('any_error')
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(
+      expect.objectContaining({
+        name: 'ServerError',
+        message: 'Internal server error',
+      }),
+    )
+  })
+
   it('should return 200 if valid credentials are provided', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle(makeFakeRequest())
