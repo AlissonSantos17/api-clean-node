@@ -3,8 +3,8 @@ WORKDIR /app
 
 RUN corepack enable
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+COPY package.json yarn.lock .yarnrc.yml ./
+RUN yarn install --immutable
 
 FROM node:22-alpine AS build
 WORKDIR /app
@@ -22,8 +22,8 @@ ENV NODE_ENV=production
 
 RUN corepack enable
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production=true && yarn cache clean
+COPY package.json yarn.lock .yarnrc.yml ./
+RUN yarn workspaces focus --all --production && yarn cache clean
 
 COPY --from=build /app/dist ./dist
 
