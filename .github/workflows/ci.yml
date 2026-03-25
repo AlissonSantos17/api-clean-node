@@ -25,10 +25,17 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: yarn
 
       - name: Enable Corepack (Yarn version from packageManager)
         run: corepack enable
+
+      - name: Cache Yarn Berry
+        uses: actions/cache@v4
+        with:
+          path: ${{ runner.home }}/.yarn/berry/cache
+          key: yarn-berry-${{ runner.os }}-${{ hashFiles('yarn.lock') }}
+          restore-keys: |
+            yarn-berry-${{ runner.os }}-
 
       - name: Install dependencies
         run: yarn install --immutable
