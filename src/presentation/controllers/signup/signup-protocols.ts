@@ -1,3 +1,3 @@
-export type * from '../../../domain/use-cases/add-account'
-export type * from '../../../domain/use-cases/models/account'
+export type * from '../../../domain/models/add-account'
+export type * from '../../../domain/models/account'
 export type * from '../../protocols'
