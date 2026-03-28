@@ -1,6 +1,6 @@
 import type { AddAccountRepository } from '../../../../data/protocols/add-account-repository'
-import type { AddAccountModel } from '../../../../domain/use-cases/add-account'
-import type { AccountModel } from '../../../../domain/use-cases/models/account'
+import type { AddAccountModel } from '../../../../domain/models/add-account'
+import type { AccountModel } from '../../../../domain/models/account'
 import { MongoHelper } from '../helpers/mongo-helper'
 
 export class AccountMongoRepository implements AddAccountRepository {
