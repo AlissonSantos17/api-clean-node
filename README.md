@@ -38,21 +38,21 @@ src/
 
 ### Status das camadas
 
-| Camada           | Responsabilidade                                  | Status       |
-| ---------------- | ------------------------------------------------- | ------------ |
-| **Presentation** | Controllers, validações e respostas HTTP          | Implementada |
-| **Domain**       | Contratos e modelos de negócio                    | Implementada |
-| **Data**         | Casos de uso e protocolos de persistência/crypto  | Implementada |
-| **Infra**        | Repositórios MongoDB e adapter de criptografia    | Implementada |
-| **Main**         | Bootstrap, factories, adapters Express e rotas    | Implementada |
+| Camada           | Responsabilidade                                 | Status       |
+| ---------------- | ------------------------------------------------ | ------------ |
+| **Presentation** | Controllers, validações e respostas HTTP         | Implementada |
+| **Domain**       | Contratos e modelos de negócio                   | Implementada |
+| **Data**         | Casos de uso e protocolos de persistência/crypto | Implementada |
+| **Infra**        | Repositórios MongoDB e adapter de criptografia   | Implementada |
+| **Main**         | Bootstrap, factories, adapters Express e rotas   | Implementada |
 
 ## Design Patterns
 
 | Pattern                  | Onde é aplicado                                                                       |
-| ------------------------ | -------------------------------------------------------------------------------------- |
+| ------------------------ | ------------------------------------------------------------------------------------- |
 | **Dependency Injection** | Use cases e controllers recebem dependências por construtor                           |
 | **Factory**              | `main/factories` concentra montagem dos fluxos e composição de dependências           |
-| **Decorator**            | `LogControllerDecorator` adiciona logging sem alterar controllers concretos            |
+| **Decorator**            | `LogControllerDecorator` adiciona logging sem alterar controllers concretos           |
 | **Adapter**              | `adaptRoute` converte contrato de controller para handler do Express                  |
 | **Composite**            | `ValidationComposite` combina múltiplas validações em uma única etapa                 |
 | **Repository**           | `AccountMongoRepository` e `LogMongoRepository` isolam detalhes de persistência Mongo |
@@ -65,19 +65,19 @@ src/
 
 ## Tecnologias
 
-| Tecnologia  | Versão | Finalidade                                            |
-| ----------- | ------ | ----------------------------------------------------- |
-| Node.js     | 22.x   | Runtime (alvo da pipeline de CI e imagem Docker)      |
-| TypeScript  | 5.9    | Tipagem estática e segurança em tempo de compilação   |
-| Express     | 5.2    | Servidor HTTP e roteamento                            |
-| MongoDB     | 7.1    | Persistência de dados                                 |
-| bcrypt      | 6.0    | Hash e comparação de senhas                           |
-| Jest        | 30.2   | Testes unitários, integração e cobertura              |
-| Supertest   | 7.2    | Testes de rota HTTP                                   |
-| ESLint      | 9.35+  | Análise estática de código                            |
-| Prettier    | 3.8    | Formatação automática                                 |
-| Husky       | 9.1    | Git hooks para automação local                        |
-| lint-staged | 16.2+  | Lint + testes relacionados em arquivos staged         |
+| Tecnologia  | Versão | Finalidade                                          |
+| ----------- | ------ | --------------------------------------------------- |
+| Node.js     | 22.x   | Runtime (alvo da pipeline de CI e imagem Docker)    |
+| TypeScript  | 5.9    | Tipagem estática e segurança em tempo de compilação |
+| Express     | 5.2    | Servidor HTTP e roteamento                          |
+| MongoDB     | 7.1    | Persistência de dados                               |
+| bcrypt      | 6.0    | Hash e comparação de senhas                         |
+| Jest        | 30.2   | Testes unitários, integração e cobertura            |
+| Supertest   | 7.2    | Testes de rota HTTP                                 |
+| ESLint      | 9.35+  | Análise estática de código                          |
+| Prettier    | 3.8    | Formatação automática                               |
+| Husky       | 9.1    | Git hooks para automação local                      |
+| lint-staged | 16.2+  | Lint + testes relacionados em arquivos staged       |
 
 ## Testes
 
