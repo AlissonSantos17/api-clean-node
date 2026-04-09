@@ -46,8 +46,17 @@ jobs:
       - name: Format check
         run: yarn format:check
 
+      - name: Type check
+        run: yarn tsc --noEmit
+
       - name: Build
         run: yarn build
 
-      - name: Test (coverage)
-        run: yarn test:ci
+      - name: Docker build
+        run: docker build -t clean-node-api:ci .
+
+      - name: Unit tests
+        run: yarn test --passWithNoTests --silent --noStackTrace --runInBand -c jest-unit.config.ts --coverage
+
+      - name: Integration tests
+        run: yarn test --passWithNoTests --silent --noStackTrace --runInBand -c jest-integration.config.ts
