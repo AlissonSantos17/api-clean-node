@@ -5,7 +5,7 @@ import {
 } from '../../../presentation/helpers/validators'
 import type { Validation } from '../../../presentation/protocols'
 import type { EmailValidator } from '../../../presentation/protocols/email-validator'
-import { makeLoginValidation } from './login-validation'
+import { makeLoginValidation } from './login-validation-factory'
 
 jest.mock('../../../presentation/helpers/validators/validation-composite')
 
