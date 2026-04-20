@@ -1,5 +1,5 @@
-export type * from '../../../data/protocols/db/load-account-by-email-repository'
-export type * from '../../../data/protocols/db/update-access-token-repository'
+export type * from '../../../data/protocols/db/account/load-account-by-email-repository'
+export type * from '../../../data/protocols/db/account/update-access-token-repository'
 export type * from '../../../domain/models/account'
 export type * from '../../../domain/models/authentication'
 export type * from '../../protocols/criptography/hash-comparer'
