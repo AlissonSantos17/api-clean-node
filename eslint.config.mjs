@@ -4,11 +4,26 @@ import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default [
   {
-    ignores: ['dist/**', 'node_modules/**', 'coverage/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'coverage/**',
+      '**/*.spec.ts',
+      '**/*.test.ts',
+    ],
   },
   {
     ...love,
     files: ['src/**/*.ts'],
+    languageOptions: {
+      ...love.languageOptions,
+      parserOptions: {
+        ...love.languageOptions?.parserOptions,
+        projectService: false,
+        project: './tsconfig.eslint.json',
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
     plugins: {
       ...love.plugins,
       prettier: eslintPluginPrettier,
