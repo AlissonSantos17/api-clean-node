@@ -4,17 +4,11 @@ import eslintPluginPrettier from 'eslint-plugin-prettier'
 
 export default [
   {
-    ignores: [
-      'dist/**',
-      'node_modules/**',
-      'coverage/**',
-      '**/*.spec.ts',
-      '**/*.test.ts',
-    ],
+    ignores: ['dist/**', 'node_modules/**', 'coverage/**'],
   },
   {
     ...love,
-    files: ['src/**/*.ts'],
+    files: ['src/**/*.ts', '**/*.spec.ts', '**/*.test.ts'],
     languageOptions: {
       ...love.languageOptions,
       parserOptions: {
