@@ -8,7 +8,16 @@ export default [
   },
   {
     ...love,
-    files: ['src/**/*.ts'],
+    files: ['src/**/*.ts', '**/*.spec.ts', '**/*.test.ts'],
+    languageOptions: {
+      ...love.languageOptions,
+      parserOptions: {
+        ...love.languageOptions?.parserOptions,
+        projectService: false,
+        project: './tsconfig.eslint.json',
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
     plugins: {
       ...love.plugins,
       prettier: eslintPluginPrettier,

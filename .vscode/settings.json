@@ -23,5 +23,6 @@
   },
   "prettier.requireConfig": true,
   "eslint.validate": ["javascript", "typescript"],
-  "files.eol": "\n"
+  "files.eol": "\n",
+  "editor.inlineSuggest.enabled": true,
 }
