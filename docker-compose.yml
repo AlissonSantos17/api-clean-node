@@ -6,13 +6,18 @@ services:
     container_name: api-clean-node
     ports:
       - '5050:5050'
+      - '9222:9222'
     environment:
       PORT: 5050
       MONGO_URL: mongodb://mongo:27017/clean-node-api
     depends_on:
       mongo:
         condition: service_healthy
-    restart: unless-stopped
+    restart: always
+    command: yarn run debug
+    volumes:
+      - ./dist:/app/dist
+      - ./package.json:/app/package.json
 
   mongo:
     image: mongo:7
@@ -27,7 +32,7 @@ services:
       timeout: 5s
       retries: 5
       start_period: 15s
-    restart: unless-stopped
+    restart: always
 
 volumes:
   mongo_data:
