@@ -21,6 +21,9 @@
     "test:staged": "yarn test --findRelatedTests",
     "test:ci": "yarn test --coverage"
   },
+  "engines": {
+    "node": ">=22.x"
+  },
   "author": "Alisson Santos <alisson.wiin@gmail.com>",
   "license": "MIT",
   "devDependencies": {
