@@ -5,8 +5,8 @@ services:
       dockerfile: Dockerfile
     container_name: api-clean-node
     ports:
-      - "5050:5050"
-      - "9222:9222"
+      - '5050:5050'
+      - '9222:9222'
     environment:
       PORT: 5050
       MONGO_URL: mongodb://mongo:27017/clean-node-api
@@ -23,11 +23,11 @@ services:
     image: mongo:7
     container_name: api-clean-node-mongo
     ports:
-      - "27017:27017"
+      - '27017:27017'
     volumes:
       - mongo_data:/data/db
     healthcheck:
-      test: [ "CMD", "mongosh", "--eval", "db.adminCommand('ping')" ]
+      test: ['CMD', 'mongosh', '--eval', "db.adminCommand('ping')"]
       interval: 10s
       timeout: 5s
       retries: 5
