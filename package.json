@@ -5,7 +5,8 @@
   "main": "dist/main/server.js",
   "scripts": {
     "build": "rimraf dist && tsc",
-    "start": "sucrase-node src/main/server.ts",
+    "start": "node dist/main/server.js",
+    "debug": "node --inspect=0.0.0.0:9222 --nolazy dist/main/server.js",
     "up": "yarn build && docker compose up -d --build",
     "down": "docker compose down",
     "start:prod": "node dist/main/server.js",
