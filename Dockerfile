@@ -2,7 +2,19 @@ FROM node:22-alpine AS dependencies
 WORKDIR /app
 
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile
+RUN yarn install --frozen-lockfile --ignore-scripts
+
+FROM node:22-alpine AS development
+WORKDIR /app
+
+ENV NODE_ENV=development
+
+COPY --from=dependencies /app/node_modules ./node_modules
+COPY package.json yarn.lock ./
+
+EXPOSE 5050 9222
+
+CMD ["yarn", "start:dev"]
 
 FROM node:22-alpine AS build
 WORKDIR /app
@@ -17,7 +29,7 @@ WORKDIR /app
 ENV NODE_ENV=production
 
 COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production && yarn cache clean
+RUN yarn install --frozen-lockfile --production --ignore-scripts && yarn cache clean
 
 COPY --from=build /app/dist ./dist
 
