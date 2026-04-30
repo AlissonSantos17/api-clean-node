@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: development
     container_name: api-clean-node
     ports:
       - '5050:5050'
@@ -14,7 +15,6 @@ services:
       mongo:
         condition: service_healthy
     restart: always
-    command: yarn run debug
     volumes:
       - ./dist:/app/dist
       - ./package.json:/app/package.json
