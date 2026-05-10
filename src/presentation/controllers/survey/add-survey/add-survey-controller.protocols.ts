@@ -1,2 +1,2 @@
 export type * from '../../../protocols'
-export type * from '../../../../domain/models/authentication'
+export type * from '../../../../domain/models/add-survey'
