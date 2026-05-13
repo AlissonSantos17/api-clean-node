@@ -86,6 +86,19 @@ describe('AddSurveyController', () => {
     expect(httpResponse).toEqual(serverError(new Error()))
   })
 
+  it('should return 500 if AddSurvey throws a non-Error value', async () => {
+    const { sut, addSurveyStub } = makeSut()
+    jest.spyOn(addSurveyStub, 'add').mockRejectedValueOnce('any_error')
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse.statusCode).toBe(500)
+    expect(httpResponse.body).toEqual(
+      expect.objectContaining({
+        name: 'ServerError',
+        message: 'Internal server error',
+      }),
+    )
+  })
+
   it('should return 204 on success', async () => {
     const { sut } = makeSut()
     const httpResponse = await sut.handle(makeFakeRequest())
