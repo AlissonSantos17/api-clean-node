@@ -1,9 +1,9 @@
 import type {
   Authentication,
   AuthenticationModel,
+  Encrypter,
   HashComparer,
   LoadAccountByEmailRepository,
-  Encrypter,
   UpdateAccessTokenRepository,
 } from './db-authentixation-protocols'
 
