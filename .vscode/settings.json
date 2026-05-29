@@ -24,7 +24,7 @@
   "prettier.requireConfig": true,
   "eslint.validate": ["javascript", "typescript"],
   "npm.packageManager": "pnpm",
-  "jest.jestCommandLine": "pnpm test --",
+  "jest.jestCommandLine": "pnpm exec jest",
   "files.eol": "\n",
   "editor.inlineSuggest.enabled": true
 }
