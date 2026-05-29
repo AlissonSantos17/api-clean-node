@@ -1,35 +1,38 @@
-FROM node:22-alpine AS dependencies
+FROM node:22-alpine AS base
 WORKDIR /app
+RUN corepack enable && corepack prepare pnpm@10.22.0 --activate
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --ignore-scripts
+FROM base AS dependencies
 
-FROM node:22-alpine AS development
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile --ignore-scripts
+
+FROM base AS development
 WORKDIR /app
 
 ENV NODE_ENV=development
 
 COPY --from=dependencies /app/node_modules ./node_modules
-COPY package.json yarn.lock ./
+COPY package.json pnpm-lock.yaml ./
 
 EXPOSE 5050 9222
 
-CMD ["yarn", "start:dev"]
+CMD ["pnpm", "start:dev"]
 
-FROM node:22-alpine AS build
+FROM base AS build
 WORKDIR /app
 
 COPY --from=dependencies /app/node_modules ./node_modules
 COPY . .
-RUN yarn build
+RUN pnpm build
 
-FROM node:22-alpine AS production
+FROM base AS production
 WORKDIR /app
 
 ENV NODE_ENV=production
 
-COPY package.json yarn.lock ./
-RUN yarn install --frozen-lockfile --production --ignore-scripts && yarn cache clean
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --frozen-lockfile --prod --ignore-scripts && pnpm store prune
 
 COPY --from=build /app/dist ./dist
 

@@ -86,45 +86,45 @@ O projeto utiliza **Jest** com **ts-jest**, com separação entre testes unitár
 - **Unitários (`*.spec.ts`)** — foco em controllers, use cases, adapters e validações.
 - **Integração (`*.test.ts`)** — foco em rotas e repositórios com MongoDB.
 - **Mongo em testes** — preset `@shelf/jest-mongodb` para provisionamento da base de testes.
-- **Cobertura habilitada** — coleta de cobertura por padrão (`yarn test:ci`).
+- **Cobertura habilitada** — coleta de cobertura por padrão (`pnpm test:ci`).
 
 ```bash
 # Executar testes
-yarn test
+pnpm test
 
 # Executar testes unitários em watch
-yarn test:unit
+pnpm test:unit
 
 # Executar testes de integração em watch
-yarn test:integration
+pnpm test:integration
 
 # Executar testes com cobertura (CI)
-yarn test:ci
+pnpm test:ci
 ```
 
 ## Qualidade e CI
 
-- **Pre-commit (`.husky/pre-commit`)** executa `yarn lint-staged`.
+- **Pre-commit (`.husky/pre-commit`)** executa `pnpm lint-staged`.
 - **lint-staged** aplica `eslint --fix` e roda testes relacionados aos arquivos staged.
-- **Pre-push (`.husky/pre-push`)** executa `yarn test:ci`.
+- **Pre-push (`.husky/pre-push`)** executa `pnpm test:ci`.
 - **GitHub Actions (`.github/workflows/ci.yml`)** valida `lint`, `format:check`, `build` e `test:ci` em push/PR para `main`.
 
 ## Scripts Disponíveis
 
 ```bash
-yarn dev            # Build + start local
-yarn start          # Executar servidor em TypeScript (sucrase-node)
-yarn build          # Compilar para dist/
-yarn start:prod     # Executar build compilada
-yarn lint           # Verificar lint
-yarn lint:fix       # Corrigir lint automaticamente
-yarn format         # Formatar código
-yarn format:check   # Verificar formatação
-yarn test           # Executar testes
-yarn test:unit      # Testes unitários (watch)
-yarn test:integration # Testes de integração (watch)
-yarn test:staged    # Testes relacionados aos arquivos alterados
-yarn test:ci        # Testes com cobertura
+pnpm dev            # Build + start local
+pnpm start          # Executar servidor em TypeScript (sucrase-node)
+pnpm build          # Compilar para dist/
+pnpm start:prod     # Executar build compilada
+pnpm lint           # Verificar lint
+pnpm lint:fix       # Corrigir lint automaticamente
+pnpm format         # Formatar código
+pnpm format:check   # Verificar formatação
+pnpm test           # Executar testes
+pnpm test:unit      # Testes unitários (watch)
+pnpm test:integration # Testes de integração (watch)
+pnpm test:staged    # Testes relacionados aos arquivos alterados
+pnpm test:ci        # Testes com cobertura
 ```
 
 ## Como Executar
@@ -137,10 +137,10 @@ git clone https://github.com/seu-usuario/clean-node-api.git
 cd clean-node-api
 
 # Instalar dependências
-yarn install
+pnpm install
 
 # Subir aplicação
-yarn start
+pnpm start
 ```
 
 Variáveis de ambiente (com defaults no projeto):
