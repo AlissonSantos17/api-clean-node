@@ -23,6 +23,8 @@
   },
   "prettier.requireConfig": true,
   "eslint.validate": ["javascript", "typescript"],
+  "npm.packageManager": "pnpm",
+  "jest.jestCommandLine": "pnpm test --",
   "files.eol": "\n",
-  "editor.inlineSuggest.enabled": true,
+  "editor.inlineSuggest.enabled": true
 }
