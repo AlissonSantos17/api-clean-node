@@ -4,7 +4,7 @@
   "packageManager": "pnpm@10.22.0",
   "main": "dist/main/server.js",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
     "start": "node dist/main/server.js",
     "start:dev": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
     "dev": "docker compose up -d mongo && pnpm build && concurrently -k -n tsc,server -c blue,green \"tsc -w --preserveWatchOutput\" \"nodemon --watch dist --delay 500ms --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js\"",
