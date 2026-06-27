@@ -1,14 +1,14 @@
 {
   "name": "clean-node-api",
   "version": "1.2.0",
-  "packageManager": "yarn@1.22.22",
+  "packageManager": "pnpm@10.22.0",
   "main": "dist/main/server.js",
   "scripts": {
-    "build": "rimraf dist && tsc",
+    "build": "rimraf dist && tsc -p tsconfig.build.json",
     "start": "node dist/main/server.js",
     "start:dev": "nodemon -L --watch ./dist --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js",
-    "dev": "docker compose up -d mongo && yarn build && concurrently -k -n tsc,server -c blue,green \"tsc -w --preserveWatchOutput\" \"nodemon --watch dist --delay 500ms --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js\"",
-    "up": "yarn build && docker compose up -d --build",
+    "dev": "docker compose up -d mongo && pnpm build && concurrently -k -n tsc,server -c blue,green \"tsc -w --preserveWatchOutput\" \"nodemon --watch dist --delay 500ms --inspect=0.0.0.0:9222 --nolazy ./dist/main/server.js\"",
+    "up": "pnpm build && docker compose up -d --build",
     "down": "docker compose down",
     "start:prod": "node dist/main/server.js",
     "lint": "eslint \"src/**/*.ts\" --no-error-on-unmatched-pattern",
@@ -19,10 +19,10 @@
     "prepare": "husky",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand",
     "test:verbose": "jest --passWithNoTests",
-    "test:unit": "yarn test --watch -c jest-unit.config.ts",
-    "test:integration": "yarn test --watch -c jest-integration.config.ts",
-    "test:staged": "yarn test --findRelatedTests",
-    "test:ci": "yarn test --coverage"
+    "test:unit": "pnpm test --watch -c jest-unit.config.ts",
+    "test:integration": "pnpm test --watch -c jest-integration.config.ts",
+    "test:staged": "pnpm test --findRelatedTests",
+    "test:ci": "pnpm test --coverage"
   },
   "engines": {
     "node": ">=22.x"
@@ -46,7 +46,7 @@
     "eslint-plugin-prettier": "^5.5.5",
     "git-commit-msg-linter": "^5.0.8",
     "husky": "^9.1.7",
-    "jest": "^30.2.0",
+    "jest": "30.2.0",
     "lint-staged": "^16.2.7",
     "nodemon": "^3.1.14",
     "prettier": "^3.8.1",

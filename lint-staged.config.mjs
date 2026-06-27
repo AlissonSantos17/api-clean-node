@@ -1,6 +1,6 @@
 export default {
   '*.ts': [
     "eslint 'src/**' --fix",
-    "yarn run test:staged",
+    "pnpm run test:staged",
   ]
 }

@@ -51,6 +51,9 @@ const makeEncrypter = (): Encrypter => {
     async encrypt(_value: string): Promise<string> {
       return await Promise.resolve('any_token')
     }
+    async decrypt(_value: string): Promise<string | null> {
+      return await Promise.resolve('any_value')
+    }
   }
   return new EncrypterStub()
 }

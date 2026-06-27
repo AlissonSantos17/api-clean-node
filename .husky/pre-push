@@ -1,1 +1,1 @@
-yarn run test:ci
+pnpm run test:ci
